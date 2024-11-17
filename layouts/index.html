@@ -1,0 +1,90 @@
+{{ define "main" }}
+
+  <!-- Jumbotron Tiles Section with Background Images -->
+  <div class="row text-center">
+    <!-- Landscape Tile -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-white" style="background-image: url('/images/landscape_jumbotron.jpg'); background-size: cover; background-position: center;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center bg-overlay">
+          <h2 class="card-title">Landscape</h2>
+          <p class="card-text">Explore breathtaking landscapes</p>
+          <a href="{{ "gallery/landscape/" | relURL }}" class="btn btn-outline-light mt-3">View Gallery</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wildlife Tile -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-white" style="background-image: url('/images/wildlife_jumbotron_1.jpg'); background-size: cover; background-position: center;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center bg-overlay">
+          <h2 class="card-title">Wildlife</h2>
+          <p class="card-text">Discover the beauty of wildlife</p>
+          <a href="{{ "gallery/wildlife/" | relURL }}" class="btn btn-outline-light mt-3">View Gallery</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Macro Tile -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-white" style="background-image: url('/images/macro_jumbotron.jpg'); background-size: cover; background-position: center;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center bg-overlay">
+          <h2 class="card-title">Macro</h2>
+          <p class="card-text">Experience the world up close</p>
+          <a href="{{ "gallery/macro/" | relURL }}" class="btn btn-outline-light mt-3">View Gallery</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Inline CSS -->
+<style>
+  .card {
+    height: 300px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .bg-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card-title, .card-text {
+    z-index: 2;
+  }
+
+  .card a {
+    z-index: 2;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+</style>
+
+<!-- Inline CSS for Title Background -->
+<style>
+  .jumbotron-title {
+    background-image: url('/images/signature_image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 20px; /* Adjust padding for better visibility */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  
+  .jumbotron-title h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+  </style>
+{{ end }}

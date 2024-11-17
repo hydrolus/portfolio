@@ -1,0 +1,20 @@
+{{ $alt := .Get "alt" | default "Profile Picture" }}
+<img src="/images/profile_new.jpg" alt="{{ $alt }}" class="profile-picture">
+
+<style>
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
+}
+</style>

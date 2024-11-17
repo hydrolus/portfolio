@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="gallery">
+  <h1>{{ .Title }}</h1>
+  <div class="gallery-grid">
+    {{ range .Pages }}
+      <a href="{{ .Permalink }}">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy" />
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+img:hover {
+  transform: scale(1.05);
+}
+</style>

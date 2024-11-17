@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }}>
+<head>
+
+  <header class="navbar navbar-dark bg-dark py-3">
+    <div class="container-fluid">
+      <a href="/" class="btn btn-outline-light ms-2">Michael Savoy Photography</a>
+    </div>
+  </header>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- Jumbotron Section for Homepage -->
+  {{ if eq .RelPermalink "/" }}
+  <div class="container mt-5">
+    <div class="jumbotron-title text-center bg-black text-light py-5 mb-5">
+      <h1>{{ .Site.Title }}</h1>
+      <p>Capturing moments through my lens</p>
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/css/custom.css">
+
+  {{ hugo.Generator }}
+  {{ partial "site-style.html" . }}
+  {{ partial "site-scripts.html" . }}
+  {{ block "favicon" . }}{{ partialCached "site-favicon.html" . }}{{ end }}
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/schema.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
+  {{ if hugo.IsProduction }}{{ template "_internal/google_analytics.html" . }}{{ end }}
+  {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
+</head>
+
+
+
+  <main role="main">
+    {{ block "main" . }}
+    
+    <!-- Jumbotron Section for Homepage -->
+    {{ if eq .RelPermalink "/" }}
+    <div class="container mt-5">
+      
+
+      <div class="row mt-5">
+        <!-- Landscape Box -->
+        <div class="col-md-4">
+          <div class="card bg-dark text-light mb-4">
+            <div class="card-body text-center">
+              <h2 class="card-title">Landscape</h2>
+              <p>Explore breathtaking landscapes</p>
+              <a href="/gallery/landscape" class="btn btn-outline-light">View Gallery</a>
+            </div>
+          </div>
+        </div>
+        <!-- Wildlife Box -->
+        <div class="col-md-4">
+          <div class="card bg-dark text-light mb-4">
+            <div class="card-body text-center">
+              <h2 class="card-title">Wildlife</h2>
+              <p>Discover the beauty of wildlife</p>
+              <a href="/gallery/wildlife" class="btn btn-outline-light">View Gallery</a>
+            </div>
+          </div>
+        </div>
+        <!-- Macro Box -->
+        <div class="col-md-4">
+          <div class="card bg-dark text-light mb-4">
+            <div class="card-body text-center">
+              <h2 class="card-title">Macro</h2>
+              <p>Experience the world up close</p>
+              <a href="/gallery/macro" class="btn btn-outline-light">View Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ end }}
+  </main>
+  <footer class="bg-dark text-light text-center py-3">
+    <div class="container">
+      <a href="/about" class="btn btn-outline-light mx-2">About Me</a>
+      <a href="/contact" class="btn btn-outline-light mx-2">Contact Me</a>
+      <p class="mt-3">&copy; {{ now.Format "2006" }} Michael Savoy Photography</p>
+    </div>
+  </footer>
+  
+</body>
+</html>
+<style>
+  .jumbotron-title {
+    background-image: url('/images/signature_image_new.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center 15px;
+    padding: 100px 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  
+  .jumbotron-title h1 {
+    font-size: 3rem;
+    color: #ffffff;
+  }
+  </style>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    main {
+      flex-grow: 1;
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    </style>
+    
+    <style>
+      .profile-container {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+      
+      .profile-picture {
+        width: 150px; /* Adjust the size as needed */
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #ffffff; /* White border */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      
+      .profile-picture:hover {
+        transform: scale(1.05);
+      }
+      </style>
+      >
+      <style>
+        .contact-form {
+          max-width: 600px;
+          margin: auto;
+        }
+        
+        .contact-form .form-control {
+          border-radius: 5px;
+        }
+        
+        .contact-form button {
+          margin-top: 20px;
+          background-color: #000;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+          background-color: #444;
+        }
+        
+        .social-icons {
+          text-align: center;
+          margin-top: 20px;
+        }
+        
+        .social-icons a {
+          font-size: 1.5rem;
+          color: #000;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+          color: #e4405f; /* Instagram's pink color */
+        }
+        </style>
+        
+        <style>
+          .social-icons {
+            text-align: center;
+            margin-top: 20px;
+          }
+          
+          .social-icons a {
+            font-size: 1.5rem;
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+          
+          .social-icons a:hover {
+            color: #e4405f; /* Instagram pink color */
+          }
+          </style>
+          

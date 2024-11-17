@@ -1,0 +1,14 @@
+baseURL = "https://gallery.michaelsavoyportfolio.com/"
+languageCode = "en-us"
+title = "Michael Savoy Photography"
+theme = "ananke"
+paginate = 10
+enableRobotsTXT = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+darkMode = true
